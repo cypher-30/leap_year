@@ -29,7 +29,6 @@
 # print(obj_transport.air, obj_transport.water)
 # print(obj2_transport.air, obj2_transport.water)
 
-
 class ShoppingCart:
     def __init__(self):
         self.items = []

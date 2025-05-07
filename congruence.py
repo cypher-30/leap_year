@@ -5,7 +5,7 @@ class DateCalculator:
         if not (1 <= month <= 12):
             raise ValueError("Month must be in 1..12")
         if not (1 <= day <= 31):
-            raise ValueError("Day must be in 1..31") # Basic check; doesn't validate actual calendar correctness
+            raise ValueError("Day must be in 1..31")
         self.year = year
         self.month = month
         self.day = day
@@ -13,7 +13,7 @@ class DateCalculator:
     def _zeller_weekday(self) -> int:
         m, y = self.month, self.year
         if m < 3:
-            m += 12
+            m += 14
             y -= 1
         q = self.day
         K = y % 100
@@ -23,8 +23,6 @@ class DateCalculator:
     def get_weekday_name(self) -> str:
         return self.DAYS[self._zeller_weekday()]
 
-
-# Example usage:
 if __name__ == "__main__":
-    date = DateCalculator(2025, 5, 6)
+    date = DateCalculator(2025, 5, 1)
     print("Weekday:", date.get_weekday_name())
